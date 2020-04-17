@@ -14,4 +14,4 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-repo: chernihiv-cycling-community/chernihiv-cycling-community.github.io
-          deploy-branch: master
+          deploy-branch: gh-pages
