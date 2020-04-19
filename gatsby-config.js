@@ -4,7 +4,7 @@ module.exports = {
     title: `Вело Чернігів - bikeland.cn.ua`,
     description: `Найцікавіші веломаршрути по Чернігову і околицях`,
     author: `@diogorodrigues`,
-    siteUrl: `https://chernihiv-cycling-community.github.io/bikeland/`
+    siteUrl: `https://bikeland.netlify.app/`
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

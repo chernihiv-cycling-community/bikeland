@@ -6,7 +6,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "prettier": "prettier --write **/*.{md,css,scss,yaml,yml,ts}",
