@@ -47,7 +47,7 @@ const query = graphql`
             prev
             of
 
-            button
+            addRouteButton
 
             aboutProject
             seeMorePWA
