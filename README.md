@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <img src="./src/images/logo-iceberg.svg" width="150">
 
 # Gatsby multi-language starter with CMS
@@ -138,3 +139,6 @@ backend:
 ---
 
 This project started based on [this solution](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n) to create a manner to provide translations, but I added a lots of other solutions based on my projects needs (like menu from GraphQL, markdown for pages, pagination, image optmization, styled components, PWA, CMS and more). Feel free to use this solution if you want. :)
+=======
+# Bikeland
+>>>>>>> e65eb9ea32bd3e47fc6677242420e64f387bea54
