@@ -2,7 +2,6 @@ backend:
     name: github
     repo: chernihiv-cycling-community/bikeland
     branch: master
-    site_domain: https://chernihiv-cycling-community.github.io/bikeland/
 
 publish_mode: editorial_workflow
 media_folder: 'static/assets/img'
