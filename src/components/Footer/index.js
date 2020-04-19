@@ -1,23 +1,23 @@
-import React from 'react';
-import useTranslations from '../useTranslations';
-import SocialLinks from '../SocialLinks';
+import React from "react"
+import useTranslations from "../useTranslations"
+import SocialLinks from "../SocialLinks"
 
-import * as S from './styled';
+import * as S from "./styled"
 
 const Footer = () => {
   const {
     aboutProject,
     seeMorePWA,
     maintainedBy,
-    contributeMessage,
-  } = useTranslations();
+    contributeMessage
+  } = useTranslations()
 
   return (
     <S.FooterWrapper>
       <S.FooterContainer>
         <SocialLinks />
         <p>
-          {aboutProject}{' '}
+          {aboutProject}{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
             target="_blank"
@@ -27,16 +27,13 @@ const Footer = () => {
           .
         </p>
         <p>
-          {maintainedBy}{' '}
-          <a
-            href="https://twitter.com/_diogorodrigues"
-            target="_blank"
-          >
-            @_diogorodrigues
+          {maintainedBy}{" "}
+          <a href="https://www.agilevision.io" target="_blank">
+            AgileVision.io
           </a>
-          . {contributeMessage}{' '}
+          . {contributeMessage}{" "}
           <a
-            href="https://github.com/diogorodrigues/iceberg-gatsby-multilang"
+            href="https://github.com/chernihiv-cycling-community/bikeland"
             target="_blank"
           >
             Github
@@ -45,7 +42,7 @@ const Footer = () => {
         </p>
       </S.FooterContainer>
     </S.FooterWrapper>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
