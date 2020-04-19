@@ -1,7 +1,9 @@
 import React from 'react';
+import loadable from '@loadable/component'
 import SEO from '../components/seo';
-import Map from "../components/map"
 import '../styles/map.scss'
+
+const Map = loadable(() => import('../components/map'))
 
 const center = [51.4843, 31.2928];
 const zoom = 13;
