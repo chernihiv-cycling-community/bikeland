@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby multiple language starter`,
-    description: `A simple but feature rich starter boilerplate for creating a multi-language Gatsby website (Internationalization / i18n) without third party plugins or packages and also focused on SEO. This starter also contains other main Gatsby configurations you might need.`,
+    title: `Вело Чернігів - bikeland.cn.ua`,
+    description: `Найцікавіші веломаршрути по Чернігову і околицях`,
     author: `@diogorodrigues`,
-    siteUrl: `https://iceberg-gatsby-multilang.netlify.com/`,
+    siteUrl: `https://chernihiv-cycling-community.github.io/bikeland/`
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
@@ -16,43 +16,43 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/assets/img`,
-        name: `uploads`,
-      },
+        name: `uploads`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/config/translations`,
-        name: `translations`,
-      },
+        name: `translations`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/config/menu`,
-        name: `menu`,
-      },
+        name: `menu`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/images`,
-        name: `images`,
-      },
+        name: `images`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/pages`,
-        name: `pages`,
-      },
+        name: `pages`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -61,20 +61,20 @@ module.exports = {
           {
             resolve: `gatsby-remark-relative-images`,
             options: {
-              name: `uploads`,
-            },
+              name: `uploads`
+            }
           },
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1040,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
           `gatsby-remark-lazy-load`,
-          `gatsby-remark-prismjs`, // It needs to be the last one
-        ],
-      },
+          `gatsby-remark-prismjs` // It needs to be the last one
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -82,10 +82,10 @@ module.exports = {
         fonts: [
           {
             family: `Open Sans`,
-            variants: [`400`, `600`],
-          },
-        ],
-      },
+            variants: [`400`, `600`]
+          }
+        ]
+      }
     },
 
     `gatsby-plugin-react-helmet`,
@@ -99,11 +99,11 @@ module.exports = {
         background_color: `#16202c`,
         theme_color: `#16202c`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
-      },
+        icon: `src/images/gatsby-icon.png`
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
-  ],
-};
+    `gatsby-plugin-offline`
+  ]
+}
