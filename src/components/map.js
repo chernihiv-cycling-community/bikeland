@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { LineChart, Line, Tooltip, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 import 'leaflet/dist/leaflet.css'
 import Leaflet from 'leaflet'
 import 'leaflet-gpx'
@@ -9,19 +10,40 @@ export default class Map extends Component {
       stats: {
           disance: 0,
           elevationGain: 0,
+          elevationData: [],
       }
+    }
+    distanceFormatter(distance) {
+        return Math.round(distance*10) / 10 + ' км';
+    }
+    elevationFormatter(elevation) {
+        return Math.round(elevation) + ' м';
+    }
+    onMouseOver(e) {
+        console.log('Over', e);
+        // e.activePayload[0].payload.distance;
     }
     render() {
         return (
             <div>
                 <div id="map"></div>
                 {this.state.loaded &&
-                    <dl>
-                        <dt>Довжина маршруту</dt>
-                        <dd>{this.state.stats.distance} м</dd>
-                        <dt>Набір висоти</dt>
-                        <dd>{this.state.stats.elevationGain} м</dd>
-                    </dl>
+                    <div>
+                        <dl>
+                            <dt>Довжина маршруту</dt>
+                            <dd>{this.state.stats.distance} м</dd>
+                            <dt>Набір висоти</dt>
+                            <dd>{this.state.stats.elevationGain} м</dd>
+                        </dl>
+                        <ResponsiveContainer width="100%" height={200}>
+                            <LineChart data={this.state.stats.elevationData} onMouseMove={this.onMouseOver}>
+                                <XAxis hide={true} dataKey="distance" tickFormatter={this.distanceFormatter} interval="preserveStartEnd" minTickGap={20} axisLine={false} allowDecimals={false}/>
+                                <YAxis mirror={true} />
+                                <Line type="linear" dataKey="elevation" name="Висота" stroke="#8884d8" dot={false} />
+                                <Tooltip formatter={this.elevationFormatter} labelFormatter={this.distanceFormatter} />
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
                 }
             </div>
         )
@@ -42,14 +64,21 @@ export default class Map extends Component {
         }).addTo(this.map);
 
         new Leaflet.GPX(this.props.gpx, {async: true}).on('loaded', (e) => {
-          this.map.fitBounds(e.target.getBounds());
-          this.setState({
-            loaded: true,
-            stats: {
-                distance: e.target.get_distance(),
-                elevationGain: e.target.get_elevation_gain(),
-            }
-          });
+            debugger;
+            this.gpx = e.target;
+            this.map.fitBounds(this.gpx.getBounds());
+            this.setState({
+                loaded: true,
+                stats: {
+                    distance: this.gpx.get_distance(),
+                    elevationGain: this.gpx.get_elevation_gain(),
+                    elevationData: this.gpx.get_elevation_data().map((item) => ({
+                        distance: item[0],
+                        elevation: item[1],
+                        tooltip: item[2],
+                    })),
+                }
+            });
         }).addTo(this.map);
     }
     componentWillUnmount() {
