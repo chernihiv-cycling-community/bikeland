@@ -1,99 +1,140 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+<img src="./src/images/logo-iceberg.svg" width="150">
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+# Gatsby multi-language starter with CMS
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+[Demo on Netlify](https://iceberg-gatsby-multilang.netlify.com/)
 
-## 🚀 Quick start
+[Starter on Gatsby](https://www.gatsbyjs.org/starters/diogorodrigues/iceberg-gatsby-multilang/)
 
-1.  **Create a Gatsby site.**
+A starter Internationalization / i18n without third party plugins or packages for Posts and Pages. Different URLs dependending on the language. Focused on SEO, PWA, Image Optimization, Styled Components and more. This starter is also integrate with Netlify CMS to manage all pages, posts and images.
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+-   Translations by using GraphQL, hooks and context API
+-   Content in markdown for pages and posts in different languages
+-   General translations for any content
+-   Creation of menus by using, jSON, translations and GraphQL
+-   Netlify CMS to manage all pages, posts and images
+-   Styled Components to styles
+-   All important seetings for speedy and optimized images
+-   Blog Posts list with pagination
+-   Focus on SEO
+-   PWA
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+## 🚀 Getting Started
 
-1.  **Start developing.**
+Assuming [Gatsby](https://github.com/gatsbyjs/gatsby/) is installed, run the following commands to install the project:
 
-    Navigate into your new site’s directory and start it up.
+**With gatsby-cli**:
+```
+$ gatsby new gatsby-multilanguage-site https://github.com/diogorodrigues/iceberg-gatsby-multilang.git
+```
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+**With git clone**:
+```
+$ git clone https://github.com/diogorodrigues/iceberg-gatsby-multilang.git your-project-name # Clone the project
 
-1.  **Open the source code and start editing!**
+cd your-project-name
 
-    Your site is now running at `http://localhost:8000`!
+rm -rf .git
+yarn install # or npm install
+gatsby develop # or yarn run develop
+```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+Running `gatsby develop` you will see the following URLs:
 
-## 🧐 What's inside?
+```
+http://localhost:8000
+http://localhost:8000/___graphql
+http://localhost:8000/admin
+```
+
+## File Structure
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+```
+├── blog
+│   ├── markdown-file.en.md
+│   ├── markdown-file.pt.md
+├── config
+│   ├── menu
+│   │   ├── en.json
+│   │   ├── pt.json
+│   ├── translations
+│   │   ├── en.json
+│   │   ├── pt.json
+│   ├── i18n.js
+├── pages
+│   ├── markdown-file.en.md
+│   ├── markdown-file.pt.md
+├── src
+├── static
+│   ├── admin
+│   │   ├── config.yml
+│   ├── assets
+│   │   ├── img
+├── gatsby-browser.js
+├── gatsby-config.js
+├── gatsby-node.js
+├── gatsby-ssr.js
+├── wrapPageElement.js
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+```
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+1. **blog and pages directories**:
+   All markdown files to generate pages and posts.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+2. **config**:
+   All language settings: languages, strings, menu...
+   In `i18n.js` you can set the languages and some others important info
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+3. **src**:
+   Components, hooks, templates and fixed pages (Different of markdown pages, these pages have the same url for all languages and the text content needs to be inserted in `config/translations` files).
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+4. **static**:
+   Netlify settings and images.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+5. **gatsby-browser.js**:
+   External files and the layout wrapper setting.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+6. **gatsby-config.js**:
+   Gatsby plugins.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+7. **gatsby-node.js**:
+   Logic for generating pages and posts by manipulating GraphQL.
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+8. **wrapPageElement.js**
+   As this component wraps every page (due to the wrapPageElement API) we can be sure to have the locale available everywhere!
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+## About Netlify CMS
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+You must change the Netlify data "repo" and "site_domain" according your Github repository in `static/admin/config.yml`.
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+```
+backend:
+    name: github
+    repo: _owner-name/repo-name_ # Path to your GitHub repository
+    branch: master
+    site_domain: _site-url_ # If site extists
+```
 
-## 🎓 Learning Gatsby
+## Important notes:
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+-   General information for languages are defined in `config/i18n.js`.
+-   The general content translations are located in `config/translations` and the `useTranslations` custom hook pulls these translations (via GraphQL query) and inserts them into the pages.
+-   The menu items translations are located in `config/menu` and the `useMenu` custom hook pulls these translations (via GraphQL query) and inserts them into the pages.
+-   Due to the use of a global layout / context API and the language code passed to all pages (see `gatsby-node.js`), you know on all pages which language is currently displayed.
+-   Blogposts are defined in `blog` directory and pages are defined in `pages` directory. The file names are the `slug` of the posts and pages.
+-   A custom component for the <a> tag is implemented - this way links can stay the same for every language, without the need to manually write path prefixes.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+## Deploy
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/diogorodrigues/iceberg-gatsby-multilang" rel="nofollow"><img src="https://camo.githubusercontent.com/be2eb66bb727e25655f1dcff88c2fdca82a77513/68747470733a2f2f7777772e6e65746c6966792e636f6d2f696d672f6465706c6f792f627574746f6e2e737667" alt="Deploy to Netlify" data-canonical-src="https://www.netlify.com/img/deploy/button.svg" style="max-width:100%;"></a>
 
-## 💫 Deploy
+---
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+💜 _Thanks_
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+---
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+This project started based on [this solution](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n) to create a manner to provide translations, but I added a lots of other solutions based on my projects needs (like menu from GraphQL, markdown for pages, pagination, image optmization, styled components, PWA, CMS and more). Feel free to use this solution if you want. :)

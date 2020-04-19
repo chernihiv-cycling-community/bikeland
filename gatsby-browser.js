@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import 'lazysizes';
 
-// You can delete this file if you're not using it
+require('prismjs/themes/prism-tomorrow.css');
+
+import CustomLayout from './wrapPageElement';
+
+export const wrapPageElement = CustomLayout;
