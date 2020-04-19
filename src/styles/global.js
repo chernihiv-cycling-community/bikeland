@@ -76,6 +76,10 @@ const GlobalStyles = createGlobalStyle`
     color: var(--primaryColor)
   }
 
+  strong {
+    font-weight: 700;
+  }
+
   :root { 
     --gray-extra-light: #eaeaea; 
     --gray-light: #747d8d;  

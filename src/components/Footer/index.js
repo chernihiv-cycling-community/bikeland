@@ -17,19 +17,12 @@ const Footer = () => {
       <S.FooterContainer>
         <SocialLinks />
         <p>
-          {aboutProject}{" "}
+          {maintainedBy}{" "}
           <a
-            href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+            href="https://github.com/chernihiv-cycling-community"
             target="_blank"
           >
-            {seeMorePWA}
-          </a>
-          .
-        </p>
-        <p>
-          {maintainedBy}{" "}
-          <a href="https://www.agilevision.io" target="_blank">
-            AgileVision.io
+            Chernihiv Cycling Community
           </a>
           . {contributeMessage}{" "}
           <a
