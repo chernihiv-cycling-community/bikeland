@@ -15,3 +15,4 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-repo: chernihiv-cycling-community/chernihiv-cycling-community.github.io
           deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
