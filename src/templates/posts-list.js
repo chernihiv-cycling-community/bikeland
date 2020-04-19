@@ -1,23 +1,22 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import PostItem from '../components/PostItem';
-import TitlePage from '../components/TitlePage';
-import SEO from '../components/seo';
+import React from "react"
+import { graphql } from "gatsby"
+import PostItem from "../components/PostItem"
+import TitlePage from "../components/TitlePage"
+import SEO from "../components/seo"
 
-import Pagination from '../components/Pagination';
+import Pagination from "../components/Pagination"
 
-import * as S from '../components/ListWrapper/styled';
+import * as S from "../components/ListWrapper/styled"
 
 const Blog = props => {
-  const postList = props.data.allMarkdownRemark.edges;
+  const postList = props.data.allMarkdownRemark.edges
 
   // Logic for Pagination Component
-  const { currentPage, numPages } = props.pageContext;
-  const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
-  const prevPage =
-    currentPage - 1 === 1 ? '/blog' : `/blog/${currentPage - 1}`;
-  const nextPage = `/blog/page/${currentPage + 1}`;
+  const { currentPage, numPages } = props.pageContext
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`
+  const nextPage = `/blog/page/${currentPage + 1}`
 
   return (
     <>
@@ -34,11 +33,11 @@ const Blog = props => {
                 date,
                 description,
                 title,
-                image,
+                image
               },
               timeToRead,
-              fields: { slug },
-            },
+              fields: { slug }
+            }
           }) => (
             <PostItem
               slug={`/blog/${slug}`}
@@ -50,7 +49,7 @@ const Blog = props => {
               description={description}
               image={image}
             />
-          ),
+          )
         )}
       </S.ListWrapper>
 
@@ -63,20 +62,25 @@ const Blog = props => {
         nextPage={nextPage}
       />
     </>
-  );
-};
+  )
+}
 
 export const query = graphql`
-  query PostsList($locale: String!, $dateFormat: String!, $skip: Int!, $limit: Int!) {
+  query PostsList(
+    $locale: String!
+    $dateFormat: String!
+    $skip: Int!
+    $limit: Int!
+  ) {
     allMarkdownRemark(
-      sort: {fields: frontmatter___date, order: DESC}, 
-      filter: { 
-        fields: { locale: { eq: $locale } } 
-        fileAbsolutePath: {regex: "/(blog)\/.*\\.md$/"}
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: {
+        fields: { locale: { eq: $locale } }
+        fileAbsolutePath: { regex: "/(blog)\/.*.md$/" }
       }
       limit: $limit
       skip: $skip
-    ){
+    ) {
       edges {
         node {
           frontmatter {
@@ -86,7 +90,6 @@ export const query = graphql`
             background
             image
             date(formatString: $dateFormat)
-
           }
           timeToRead
           fields {
@@ -97,6 +100,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default Blog;
+export default Blog

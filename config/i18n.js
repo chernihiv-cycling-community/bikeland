@@ -1,7 +1,7 @@
 // Only one item MUST have the "default: true" key
 
 module.exports = {
-  ua: {
+  uk: {
     default: true,
     path: `uk`,
     locale: `uk-UA`,

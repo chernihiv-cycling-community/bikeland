@@ -1,0 +1,8 @@
+{
+  "menuItems": [
+    { "name": "Головна", "link": "/" },
+    { "name": "Про проєкт", "link": "/about" },
+    { "name": "Блог", "link": "/blog" },
+    { "name": "Зворотній зв'язок", "link": "/contact-us" }
+  ]
+}
