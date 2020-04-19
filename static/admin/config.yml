@@ -1,8 +1,8 @@
 backend:
     name: github
-    repo: diogorodrigues/iceberg-gatsby-multilang
+    repo: chernihiv-cycling-community/bikeland
     branch: master
-    site_domain: https://iceberg-gatsby-multilang.netlify.com/
+    site_domain: https://chernihiv-cycling-community.github.io/bikeland/
 
 publish_mode: editorial_workflow
 media_folder: 'static/assets/img'
@@ -10,13 +10,13 @@ public_folder: 'assets/img'
 show_preview_links: true
 
 collections:
-    #Posts (English)
-    - name: 'posts-en' # Used in routes, e.g., /admin/collections/blog
+    #Posts (Ukrainian)
+    - name: 'posts-uk' # Used in routes, e.g., /admin/collections/blog
       label: 'Posts (English)' # Used in the UI
       folder: 'blog' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-      extension: 'en.md'
+      extension: 'uk.md'
       format: frontmatter
       fields: # The fields for each document, usually in front matter
           - { label: 'Title', name: 'title', widget: 'string' }
@@ -59,13 +59,13 @@ collections:
             }
           - { label: 'Body', name: 'body', widget: 'markdown' }
 
-    #Posts (Portuguese)
-    - name: 'posts-pt' # Used in routes, e.g., /admin/collections/blog
-      label: 'Posts (Portuguese)' # Used in the UI
+    #Posts (English)
+    - name: 'posts-en' # Used in routes, e.g., /admin/collections/blog
+      label: 'Posts (Ukrainian)' # Used in the UI
       folder: 'blog' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-      extension: 'pt.md'
+      extension: 'en.md'
       format: frontmatter
       fields: # The fields for each document, usually in front matter
           - { label: 'Title', name: 'title', widget: 'string' }
@@ -108,13 +108,13 @@ collections:
             }
           - { label: 'Body', name: 'body', widget: 'markdown' }
 
-    #Pages (English)
-    - name: 'pages-en' # Used in routes, e.g., /admin/collections/blog
-      label: 'Pages (English)' # Used in the UI
+    #Pages (Ukrainian)
+    - name: 'pages-uk' # Used in routes, e.g., /admin/collections/blog
+      label: 'Pages (Ukrainian)' # Used in the UI
       folder: 'pages' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-      extension: 'en.md'
+      extension: 'uk.md'
       format: frontmatter
       fields: # The fields for each document, usually in front matter
           - { label: 'Title', name: 'title', widget: 'string' }
@@ -127,13 +127,13 @@ collections:
           - { label: 'isPage', name: 'page', widget: 'hidden', default: true }
           - { label: 'Body', name: 'body', widget: 'markdown' }
 
-    #Pages (Portuguese)
-    - name: 'pages-pt' # Used in routes, e.g., /admin/collections/blog
-      label: 'Pages (Portuguese)' # Used in the UI
+    #Pages (English)
+    - name: 'pages-en' # Used in routes, e.g., /admin/collections/blog
+      label: 'Pages (English)' # Used in the UI
       folder: 'pages' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-      extension: 'pt.md'
+      extension: 'en.md'
       format: frontmatter
       fields: # The fields for each document, usually in front matter
           - { label: 'Title', name: 'title', widget: 'string' }
