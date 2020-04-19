@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/bikeland",
   siteMetadata: {
     title: `Вело Чернігів - bikeland.cn.ua`,
     description: `Найцікавіші веломаршрути по Чернігову і околицях`,
