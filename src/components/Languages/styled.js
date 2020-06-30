@@ -16,12 +16,21 @@ export const LanguageWrapper = styled.ul`
 `;
 
 export const LanguageItem = styled.li`
-  margin-left: var(--space-sm);
+  margin-left: 0.5em;
+  display: flex;
+  &:not(:last-child):after{
+    content: '/'
+  }
 `;
 
 export const LanguageLink = styled(Link)`
   display: inline-block;
-  margin-right: 0.5rem;
+  margin-right: 0.5em;
   color: var(--grayColor);
   font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.5s;
+  &:hover{
+    color: var(--secondary-color);
+  }
 `;

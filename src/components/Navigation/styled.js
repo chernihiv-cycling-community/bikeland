@@ -4,16 +4,25 @@ import LocalizedLink from '../LocalizedLink';
 import { Link } from 'gatsby';
 
 export const Navigation = styled.nav`
-  display: none;
+  display: flex;
   flex-direction: column;
-  margin-top: var(--space-sm);
+  margin-top: 0;
+  height: 0;
+  min-height: 0;
+  overflow: hidden;
+  transition: min-height 1s, margin-top 1s;
   &.active {
-    display: flex;
+    margin-top: var(--space);
+    height: 100%;
+    min-height: 180px;
+    transition: min-height 1s, margin-top 1s, height 0s 1s;
   }
   ${media.greaterThan('medium')`
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: auto;
+    margin-top: var(--space-sm);
   `}
 `;
 
@@ -21,7 +30,7 @@ export const NavigationLink = styled(LocalizedLink)`
   color: var(--text-dark);
   text-decoration: none;
   position: relative;
-  padding: 0 var(--space-sm);
+  padding: 0 5px;
   margin-bottom: var(--space-sm);
   text-align: center;
   ${media.greaterThan('medium')`
@@ -30,6 +39,7 @@ export const NavigationLink = styled(LocalizedLink)`
   `}
   ${media.greaterThan('large')`
     margin-left: var(--space);
+    padding: 0 var(--space-sm);
   `} 
 
   &:after {
@@ -38,12 +48,16 @@ export const NavigationLink = styled(LocalizedLink)`
       display: inline-block;
       width: 0;
       height: 4px;
-      background: var(--primary-color);
+      border-radius: 3px;
+      background: var(--secondary-color);
       position: absolute;
-      left: 0;
-      bottom: -10px;
+      left: 5px;
+      bottom: -5px;
       opacity: 0;
       transition: .3s ease-in-out;
+    `}
+    ${media.greaterThan('large')`
+      left: var(--space-sm);
     `}
   }
 
@@ -56,8 +70,10 @@ export const NavigationLink = styled(LocalizedLink)`
 
     &:after {
       opacity: 1;
-      bottom: -10px;
-      width: 100%;
+      width: calc(100% - 10px);
+      ${media.greaterThan('large')`
+        width: calc(100% - var(--space-sm)*2);
+      `}
     }
   }
 `;
@@ -71,7 +87,11 @@ export const NavigationButton = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   text-align: center;
+  transition: all 0.3s;
+  &:hover{
+    background: var(--secondary-color);
+  }
   ${media.greaterThan('medium')`
-    margin-left: var(--space-lg);
+    margin-left: var(--space);
   `}
 `;

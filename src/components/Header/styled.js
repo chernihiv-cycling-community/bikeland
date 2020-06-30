@@ -34,6 +34,7 @@ export const LogoLink = styled(LocalizedLink)`
 
 export const NavMenu = styled.div`
   width: 100%;
+  flex-shrink: 0;
   ${media.greaterThan('medium')`
     margin-left: auto;
     width: auto;
@@ -42,4 +43,10 @@ export const NavMenu = styled.div`
 
 export const NavLanguages = styled.div`
   margin-left: var(--space);
+  position: absolute;
+  top: 0;
+  right: 15px;
+  ${media.greaterThan('large')`  
+    right: 0;
+  `}
 `;

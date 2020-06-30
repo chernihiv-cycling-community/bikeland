@@ -11,6 +11,6 @@ export const SocialLinksItem = styled.li`
 
 export const SocialLinksLink = styled.a`
   display: block;
-  width: 50px;
-  color: var(--primary-color);
+  width: 30px;
+  color: var(--text-dark);
 `;

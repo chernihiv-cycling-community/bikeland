@@ -11,6 +11,9 @@ export const FooterContainer = styled.div`
   max-width: var(--width-container);
   margin: 0 auto;
   padding: calc(var(--space) * 1.3) var(--space);
+  display: flex;  
+  align-items: center;
+  font-size: 0.8em;
   ${media.greaterThan('large')`
     padding: calc(var(--space)*1.3) var(--space-sm);
   `}
